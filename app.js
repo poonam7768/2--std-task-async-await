@@ -146,6 +146,12 @@ if(getconfirm.isConfirmed){
         let getIndex = state.studentArr.findIndex(t => t.id === remove_Id);
         state.studentArr.splice(getIndex,1)
         ele.closest('tr').remove()
+
+        let td = [...document.querySelectorAll("#tableInfo tr td:first-child")];
+                       td.forEach((td,i)=>{
+                        td.innerHTML = i+1
+                       })
+                       
         snackBar("Data Deleted successfully!",'success')
     }catch (err){
        snackBar(err.message,'error')
